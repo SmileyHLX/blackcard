@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="settings-page">
+    <div class="card settings-container">
+        <div class="card-inner">
+            <h2>Settings</h2>
+
+            <!-- Toggle AI Prompts -->
+            <div class="setting-item">
+                <label for="toggleAI">Hide AI Prompts:</label>
+                <label class="switch">
+                    <input type="checkbox" id="toggleAI" onchange="toggleAIPrompts()">
+                    <span class="slider"></span>
+                </label>
+            </div>
+
+            <!-- Back Button -->
+            <div class="setting-item">
+                <button class="back-button" onclick="goBack()">Back</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Save the state of the settings when the user clicks the back button or exits the settings page
+        function goBack() {
+            let hideAI = document.getElementById("toggleAI").checked;
+            localStorage.setItem("hideAIPrompts", hideAI); // Save setting before going back
+
+            // Save the current prompt state (like 4/478)
+            let currentPromptState = localStorage.getItem("currentPromptState") || "1/478"; // Default to 1/478 if no state exists
+            localStorage.setItem("savedPromptState", currentPromptState); // Save the current state to return to later
+
+            window.location.href = "index.html"; // Redirect to the main page
+        }
+
+        // Toggle AI Prompts and save the state to localStorage
+        function toggleAIPrompts() {
+            let hideAI = document.getElementById("toggleAI").checked;
+            localStorage.setItem("hideAIPrompts", hideAI); // Save the current state to localStorage
+        }
+
+        // Load saved settings when the page loads
+        document.addEventListener("DOMContentLoaded", () => {
+            // Retrieve saved setting for AI toggle from localStorage
+            let hideAI = localStorage.getItem("hideAIPrompts") === "true"; 
+            document.getElementById("toggleAI").checked = hideAI;
+        });
+    </script>
+</body>
+</html>

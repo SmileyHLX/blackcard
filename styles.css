@@ -1,0 +1,157 @@
+/* Center the card on the screen */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: transparent;
+    padding: 0;
+}
+
+/* Styling for the card */
+.card {
+    width: 300px;
+    height: 450px;
+    background-color: black;
+    border: 8px solid black;
+    box-sizing: border-box;
+    border-radius: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    color: white;
+    text-align: left;
+    font-family: Arial, sans-serif;
+    font-size: 25px;
+    position: relative;
+}
+
+/* Inner card content */
+.card-inner {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    border: 3px solid white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+/* Refresh button */
+.refresh-button {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    background: none;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 25px;
+}
+
+/* Counter at the bottom left */
+.counter {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    font-size: 18px;
+    color: #fff;
+}
+
+/* Settings button (cogwheel) */
+.settings-button {
+    position: absolute;
+    bottom: 0px; 
+    left: -60px;
+    background: none;
+    color: white;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+/* Styling for the toggle switch */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 40px; /* Adjust width here */
+    height: 24px; /* Adjust height here */
+}
+
+/* Hide the default checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* Style the slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 34px;
+}
+
+/* Style the circle inside the slider */
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 16px; /* Adjust the circle height here */
+    width: 16px; /* Adjust the circle width here */
+    border-radius: 50%;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: 0.4s;
+}
+
+/* When the checkbox is checked, move the slider */
+input:checked + .slider {
+    background-color: #4CAF50;
+}
+
+/* When the checkbox is checked, move the circle inside */
+input:checked + .slider:before {
+    transform: translateX(16px); /* Adjust movement of the circle */
+}
+
+/* Styling for the setting items */
+.setting-item {
+    margin-bottom: 20px;
+}
+
+/* For aligning toggle switches and labels */
+.setting-item label {
+    font-size: 22px;
+    color: white;
+}
+
+/* Back button styling */
+.back-button {
+    padding: 6px 14px; /* Smaller padding for a smaller button */
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 20px; /* Rounded corners */
+    color: white;
+    font-size: 16px; /* Smaller font size */
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-align: center;
+    margin-top: 20px; /* Add space from the content above */
+}
+
+/* Hover effect for the rounded button */
+.back-button:hover {
+    background-color: #45a049; /* Darker shade on hover */
+}
